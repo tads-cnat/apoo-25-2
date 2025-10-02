@@ -4,35 +4,37 @@
 
 | Data | Versão | Descrição | Autores |
 | :--: | :----: | :-------: | :-----: |
-| - | - | Versão inicial |  - |
+| 02/10/25 | 1.0 | Versão inicial | Fellipe Aleixo |
 | - | - | - |  - |
 
 
 ## 1. Visão Geral do Sistema Proposto
 
-Texto...
+O objetivo central do sistema é possibilitar aos alunos do curso de TADS do IFRn oportunidades de colocação no mercado de trabalho (estágios e contratações). Para tal o sistema atuará em duas frentes: no ponto de vista dos alunos, possibilitará a publicação do portifólio de projetos do mesmo, bem como as experiências adiquiridas. Já do ponto de vista das empresas/instituições possibilitará a divulgação das suas oportunidades de vagas, recebendo como retorno uma lista dos usuários que se interessaram pela vaga.
 
 ## 2. Descrição do Problema
 | | |
 | :-: | :-: |
-| **Problema** | ... |
-| **Afeta** | ... |  
-| **Impacta** | ... |
-| **Solução** | ... | 
+| **Problema** | Oportunizar aos alunos de TADS o acesso à prática profissional |
+| **Afeta** | Alunos de TADS e suas respectivas famílias |  
+| **Impacta** | A prática profissional é um componente fundamental da formação de TADS |
+| **Solução** | Um sistema que facilite o acesso dos alunos de TADS à prática profissional | 
 
 ## 3. Descrição dos Usuários 
 
 | Usuário | Descrição | Responsabilidades |
 | :-----: | :-------: | :--------------: |
-| papel... | descrição... | responsabilidades... |
-| ... | ... | ... |
+| Administrador | usuário que atuará na função de administrador do sistema | atuar como moderador de conteúdos, habilitar usuários externos, etc. |
+| Aluno de TADS | alunos cursando TADS, preferêncialmente a partir do 3º período | publicar as informações do seu portifólio e sinalizar o interesse em oportunidades de vaga |
+| Recrutador | usuários externos, representando empresas ou instituições | publicação de vagas de estágio e/ou contratação, ter acesso à lista dos interessados em uma vaga |
 
 ## 4. Descrição do Ambiente dos Usuários
 
 | Usuário | Ambiente operacional |
 | :-----: | :------------------: |
-| papel... | como terá acesso ao sistema... |
-| ... | ... |
+| Administrador | utilizará um computador pessoal com acesso à Internet |
+| Aluno de TADS | utilizará um computador OU aparelho celular com acesso à Internet |
+| Recrutador | utilizará um computador pessoal com acesso à Internet |
 
 ## 5. Principais Necessidades dos Usuários
 
