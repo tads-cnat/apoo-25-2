@@ -4,12 +4,12 @@
 
 | Data | Versão | Descrição | Autores |
 | :--: | :----: | :-------: | :-----: |
-| - | - | Versão inicial |  - |
+| 02/10/25 | 0.1 | Versão inicial do diagrama ed CDU | Fellipe Aleixo |
 | - | - | - |  - |
 
 ## 1. Diagrama de Casos de Uso
 
-Imagem...
+![diagrama de casos de uso](./imagem/cdu.png)
 
 ## 2. Listagem dos Detalhamentos dos Casos de Uso
 
