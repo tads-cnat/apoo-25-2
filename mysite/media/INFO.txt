@@ -1,0 +1,2 @@
+Este diretório será utilizado para armazenar os arquivos que por ventura
+sejam enviados para para o projeto Web, por meio de "upload".
