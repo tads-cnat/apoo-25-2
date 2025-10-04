@@ -1,8 +1,8 @@
 # Portifólio IFRN
 
-<img src="logo.png" width="200" height="200" />
+<img src="logo.png" width="250" height="250" />
 
-O sistema em questão possui dois objetivos principais, em torno de um mesmo princípio - ofertar aos alunos de TADS/IFRN oportunidades de estágio e/ou trabalho. Por um lado, permitirá que os alunos possam publicar os seus portifólios de projetos de software e experiências acumuladas. Por outro lado, permitirá que empresas/instituições, devidamente autorizadas, a publicar oportunidades de vagas e receba informações dos respectivos interessados.
+O sistema em questão possui dois objetivos principais, em torno de um mesmo princípio - ofertar aos alunos de TADS/IFRN oportunidades de estágio e/ou trabalho. Por um lado, permitirá que os alunos possam publicar os seus portfólios de projetos de desenvolvimento de software e as experiências acumuladas na participação dos mesmos. Por outro lado, permitirá que empresas/instituições, devidamente autorizadas, a publicar oportunidades de vagas e receba informações dos respectivos interessados.
 
 # Equipe e Formas de Contato
 
