@@ -1,4 +1,4 @@
-# Portifólio IFRN
+# Portfólio IFRN
 
 <img src="logo.png" width="250" height="250" />
 
