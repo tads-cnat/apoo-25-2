@@ -14,9 +14,9 @@
 
 ## 2. Listagem dos Detalhamentos dos Casos de Uso
 
-1. [CDU-01 - Gerenciar portfólio](cdu-001/detalhamento-001.md)
-1. [CDU-02 - Listar todas as vagas](cdu-002/detalhamento-002.md)
-1. [CDU-03 - Sinalizar interesse em vaga](#)
+1. [CDU-01 - Gerenciar portfólio](./cdu-01/detalhamento-01.md)
+1. [CDU-02 - Listar todas as vagas](./cdu-02/detalhamento-02.md)
+1. [CDU-03 - Sinalizar interesse em vaga](./cdu-03/detalhamento-03.md))
 1. [CDU-04 - Pesquisar por vagas específicas](#)
 1. [CDU-05 - Criar aviso em caso de vaga específica](#)
 1. [CDU-06 - Comentar em vaga ou portifólio](#)
