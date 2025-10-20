@@ -14,7 +14,7 @@
 
 ## 2. Listagem dos Detalhamentos dos Casos de Uso
 
-1. [CDU-01 - Gerenciar portfólio](./cdu-01/detalhamento-01.md)
+1. [CDU-01 - Gerenciar portfólio](./cdu-01/detalhamento-01.md) :white_check_mark:
 1. [CDU-02 - Listar todas as vagas](./cdu-02/detalhamento-02.md)
 1. [CDU-03 - Sinalizar interesse em vaga](./cdu-03/detalhamento-03.md)
 1. [CDU-04 - Pesquisar por vagas específicas](./cdu-04/detalhamento-04.md)
@@ -27,7 +27,7 @@
 1. [CDU-11 - Realiza auto-cadastro](./cdu-11/detalhamento-11.md)
 1. [CDU-12 - Login de usuário](./cdu-12/detalhamento-12.md)
 1. [CDU-13 - Visualizar chat específico](./cdu-13/detalhamento-13.md)
-1. [CDU-14 - Enviar mensagem em chat específico](./cdu-14/detalhamento-14.md)
+1. [CDU-14 - Enviar mensagem em chat específico](./cdu-14/detalhamento-14.md) :white_check_mark:
 1. [CDU-15 - Habilitar usuário externo](./cdu-15/detalhamento-15.md)
 1. [CDU-16 - Moderar publicação de vaga](./cdu-16/detalhamento-16.md)
-1. [CDU-17 - Moderar publicação de portfólio](./cdu-17/detalhamento-17.md)
+1. [CDU-17 - Moderar publicação de portfólio](./cdu-17/detalhamento-17.md) :white_check_mark:
