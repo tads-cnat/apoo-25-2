@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <title>App Portifólio</title>
+    </head>
+    <body>
+        <h1>App Portifólio</h1>
+        <h2>Cadastramento de Aluno</h2>
+        <form method="post" action="{% url 'cad_usuario' %}">
+            {% csrf_token %}
+            <p>Username: <input type="text" name="login"/></p>
+            <p>E-mail: <input type="text" name="email"/></p>
+            <p>Senha: <input type="password" name="senha1"/></p>
+            <p>Confirmação da senha: <input type="password" name="senha2"/></p>
+            <p>Matrícula: <input type="number" name="matricula"/></p>
+            <p>Período: <input type="text" name="periodo"/></p>
+            <input type="submit" value="Cadastrar Aluno"/>
+        </form>
+    </body>
+</html>
