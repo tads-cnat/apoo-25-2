@@ -1,19 +1,45 @@
-<html>
-    <head>
-        <title>App Portifólio</title>
-    </head>
-    <body>
-        <h1>App Portifólio</h1>
-        <h2>Cadastramento de Aluno</h2>
-        <form method="post" action="{% url 'cad_usuario' %}">
-            {% csrf_token %}
-            <p>Username: <input type="text" name="login"/></p>
-            <p>E-mail: <input type="text" name="email"/></p>
-            <p>Senha: <input type="password" name="senha1"/></p>
-            <p>Confirmação da senha: <input type="password" name="senha2"/></p>
-            <p>Matrícula: <input type="number" name="matricula"/></p>
-            <p>Período: <input type="text" name="periodo"/></p>
-            <input type="submit" value="Cadastrar Aluno"/>
-        </form>
-    </body>
-</html>
+{% extends 'portifolio/base.html' %}
+{% block hero %}
+{% endblock %}
+
+{% block main %}
+    <div class="container form-container-wrapper" style="margin-top: 5rem;">
+        <div class="form-container" style="margin-left: 6rem; margin-right: 6rem;">
+            <form method="post" action="{% url 'cad_usuario' %}" class="form-aluno" id="formUsuario">
+                <h2>Cadastramento de Usuário</h2>
+                {% csrf_token %}
+                {% if error %}
+                    <div class="alert alert-danger" role="alert">
+                        <p>{{ error }}</p>
+                    </div>
+                {% endif %}
+                <div class="form-group">
+                    <input type="text" id="login" name="login" class="form-control" placeholder="Username" required/>
+                </div>
+                
+                <div class="form-group">
+                    <input type="email" id="email" name="email" class="form-control" placeholder="E-mail" required/>
+                </div>
+                
+                <div class="form-group">
+                    <input type="password" id="senha1" name="senha1" class="form-control" placeholder="Senha" required/>
+                </div>
+                
+                <div class="form-group">
+                    <input type="password" id="senha2" name="senha2" class="form-control" placeholder="Confirmar senha" required/>
+                </div>
+                
+                <div class="form-group">
+                    <input type="number" id="matricula" name="matricula" class="form-control" placeholder="Matrícula" required/>
+                </div>
+                
+                <div class="form-group">
+                    <input type="text" id="periodo" name="periodo" class="form-control" placeholder="Período" required/>
+                </div>
+                
+                <button type="submit" class="btn btn-primary" style="margin-top: 1.5rem; padding: 0.75rem 2rem; font-size: 1rem; border: none; border-radius: 0.5rem; cursor: pointer; background-color: #007bff; color: white; transition: background-color 0.3s ease;">Cadastrar Usuário</button>
+
+            </form>
+        </div>
+    </div>
+{% endblock %}
