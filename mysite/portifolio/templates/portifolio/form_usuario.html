@@ -8,9 +8,9 @@
             <form method="post" action="{% url 'cad_usuario' %}" class="form-aluno" id="formUsuario">
                 <h2>Cadastramento de Usuário</h2>
                 {% csrf_token %}
-                {% if error %}
+                {% if erro %}
                     <div class="alert alert-danger" role="alert">
-                        <p>{{ error }}</p>
+                        <p>{{ erro }}</p>
                     </div>
                 {% endif %}
                 <div class="form-group">

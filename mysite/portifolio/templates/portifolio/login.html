@@ -3,6 +3,9 @@
 {% endblock %}
 
 {% block main %}
+{% if sucesso %}
+    <p>{{ sucesso }}</p>
+{% endif %}
 <div class="login-container" style="margin-top: 6rem; margin-right: 10rem; margin-left: 10rem;">
     <h1>Login</h1>
     <form method="post">

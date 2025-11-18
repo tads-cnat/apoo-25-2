@@ -1,0 +1,28 @@
+from django.contrib.auth.models import User
+from .models import Aluno
+
+class UsuarioService:
+    def cadastrar_usuario(self, mapa):
+        if self.validar(mapa):
+            usr = User.objects.create_user(
+                mapa['login'], mapa['email'], mapa['senha1']
+            )
+            aluno = Aluno(
+                user=usr, matricula=mapa['matricula'], 
+                periodo=mapa['periodo']
+            )
+            aluno.save()
+            return {'sucesso': 'Usuário cadastrado com sucesso!'}
+        elif self.senhas_diferentes(mapa):
+            return {'erro': 'Senhas precisam ser iguais!'}
+        return {'erro': 'Todos os parâmetros devem ser informados!'}
+
+    def validar(self, mapa):
+        if (mapa['login'] and mapa['senha1'] and mapa['senha2'] and
+            mapa['email'] and mapa['periodo'] and mapa['matricula']):
+            if mapa['senha1'] == mapa['senha2']:
+                return True
+        return False
+
+    def senhas_diferentes(self, mapa):
+        return not mapa['senha1'] == mapa['senha2']
