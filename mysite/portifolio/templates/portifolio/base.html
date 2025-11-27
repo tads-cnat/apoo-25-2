@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Início - Portfólio IFRN</title>
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+</head>
+<body>
+    <header class="fixed">
+        <nav>
+            <div class="logo">Portifólio</div>
+            <ul class="nav-links">
+                <li><a href="{% url 'index' %}">Início</a></li>
+                <li><a href="#">Sobre</a></li>
+                <li><a href="#">Vagas</a></li>
+                <li><a href="#">Portifólios</a></li>
+                <li><a href="#">Contato</a></li>
+                <li><a href="{% url 'login' %}">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    {% block hero %}
+    <section class="hero">
+        <h1>Bem-vindo ao Portifólio IFRN</h1>
+        <p>Encurtando as distâncias entre os talentos e a prática profissional.</p>
+        <a href="{% url 'cad_usuario' %}" class="btn">Faça o seu Auto-cadastro</a>
+    </section>
+    {% endblock %}
+
+    {% block main %}
+    {% endblock %}
+
+    <footer>
+        <p>&copy; 2025 Portifólio IFRN. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
