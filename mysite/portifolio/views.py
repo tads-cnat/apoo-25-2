@@ -1,7 +1,21 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import View
-from .services import UsuarioService
+from .services import UsuarioService, VagaService
 
+## ComentarVagaView
+###################
+class ComentarVagaView(View):
+    def get(self, request, *args, **kwargs):
+        srv = VagaService()
+        id_vaga = kwargs['id_vaga']
+        vaga = srv.get_vaga(id_vaga)
+        if vaga:
+            return render(request, 'portifolio/form_comentario.html', {'vaga': vaga})
+        # definição da mensagem de retorno - middleware
+        return redirect('index')
+        
+## AdicaoUsuarioView
+####################
 class AdicaoUsuarioView(View):
     def get(self, request, *args, **kwargs):
         return render(request, 'portifolio/form_usuario.html')

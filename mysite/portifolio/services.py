@@ -1,6 +1,20 @@
 from django.contrib.auth.models import User
-from .models import Aluno
+from .models import Aluno, Vaga
 
+## VagaService
+##############
+
+class VagaService:
+    def get_vaga(self, id_vaga):
+        try:
+            obj = Vaga.objects.get(pk=id_vaga)
+            return obj
+        except(Vaga.DoesNotExist):
+            return None
+
+
+## UsuaruiService
+#################
 class UsuarioService:
     def cadastrar_usuario(self, mapa):
         if self.validar(mapa):
