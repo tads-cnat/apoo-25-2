@@ -16,6 +16,7 @@
 
 ## Fluxo Alternativo I - Comentar portfólio
 | Ações do ator | Ações do sistema |
+| :-----------: | :--------------: | 
 | O.1 - Na visualização dos detalhes de um portifólio o aluno clica na ação de deixar comentário. | |  
 | | 1.1 - O sistema exibe um formulário para o cadastramento do comentário (texto, automáticos - autor e data/hora). |
 | 2.1 - O aluno preenche e submete o comentário. | |
