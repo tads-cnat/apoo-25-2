@@ -1,0 +1,26 @@
+{% extends 'portifolio/base.html' %}
+{% block hero %}
+{% endblock %}
+
+{% block main %}
+    <div class="container form-container-wrapper" style="margin-top: 5rem;">
+        <div class="form-container" style="margin-left: 6rem; margin-right: 6rem;">
+            <form method="post" action="{% url 'comenta_vaga' vaga.id %}" id="formComentario">
+                <h2>Comentário de Vaga</h2>
+                {% csrf_token %}
+                {% if erro %}
+                    <div class="alert alert-danger" role="alert">
+                        <p>{{ erro }}</p>
+                    </div>
+                {% endif %}
+                <div class="form-group">
+                    <p>Digite o seu comentário para a vaga "{{ vaga.titulo }}":</p>
+                    <textarea id="comentario", name="texto">
+                    </textarea>
+                </div>
+                
+                <button type="submit" class="btn btn-primary" style="margin-top: 1.5rem; padding: 0.75rem 2rem; font-size: 1rem; border: none; border-radius: 0.5rem; cursor: pointer; background-color: #007bff; color: white; transition: background-color 0.3s ease;">Cadastrar Comentário</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

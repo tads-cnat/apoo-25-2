@@ -1,7 +1,35 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import View
-from .services import UsuarioService
+from django.contrib import messages
+from .services import UsuarioService, VagaService, ComentarioService
 
+## ComentarVagaView
+###################
+class ComentarVagaView(View):
+    def get(self, request, *args, **kwargs):
+        srv = VagaService()
+        id_vaga = kwargs['id_vaga']
+        vaga = srv.get_vaga(id_vaga)
+        if vaga:
+            return render(request, 'portifolio/form_comentario.html', {'vaga': vaga})
+        messages.error(request, 'Vaga não encontrada.')
+        return redirect('index')
+    
+    def post(self, request, *args, **kwargs):
+        srv = ComentarioService()
+        id_vaga = kwargs['id_vaga']
+        texto = request.POST['texto']
+        resultado = srv.comentar_vaga(request.user, id_vaga, texto)
+        if 'sucesso' in resultado:
+            messages.success(request, resultado['sucesso'])
+            # TODO: 'detalhes_vaga' ainda não está implementado
+            # por enquanto o resultado será redirecionado para a 'index'
+            return redirect('index')
+        messages.error(request, resultado['erro'])
+        return redirect('index')
+
+## AdicaoUsuarioView
+####################
 class AdicaoUsuarioView(View):
     def get(self, request, *args, **kwargs):
         return render(request, 'portifolio/form_usuario.html')
@@ -11,8 +39,10 @@ class AdicaoUsuarioView(View):
         srv = UsuarioService()
         retorno = srv.cadastrar_usuario(param)
         if 'erro' in retorno:
-            return render(request,'portifolio/form_usuario.html', retorno)
-        return render(request, 'portifolio/login.html', retorno)
+            messages.error(request, retorno['erro'])
+            return render(request,'portifolio/form_usuario.html')
+        messages.success(request, 'Usuário cadastrado com sucesso!')
+        return redirect('index')
     
     def extrai_parametros(self, request):
         login = request.POST.get('login', '')
