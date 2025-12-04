@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views import View
 from django.contrib import messages
-from .services import UsuarioService, VagaService
+from .services import UsuarioService, VagaService, ComentarioService
 
 ## ComentarVagaView
 ###################
@@ -14,7 +14,20 @@ class ComentarVagaView(View):
             return render(request, 'portifolio/form_comentario.html', {'vaga': vaga})
         messages.error(request, 'Vaga não encontrada.')
         return redirect('index')
-        
+    
+    def post(self, request, *args, **kwargs):
+        srv = ComentarioService()
+        id_vaga = kwargs['id_vaga']
+        texto = request.POST['texto']
+        resultado = srv.comentar_vaga(request.user, id_vaga, texto)
+        if 'sucesso' in resultado:
+            messages.success(request, resultado['sucesso'])
+            # TODO: 'detalhes_vaga' ainda não está implementado
+            # por enquanto o resultado será redirecionado para a 'index'
+            return redirect('index')
+        messages.error(request, resultado['erro'])
+        return redirect('index')
+
 ## AdicaoUsuarioView
 ####################
 class AdicaoUsuarioView(View):

@@ -1,9 +1,8 @@
 from django.contrib.auth.models import User
-from .models import Aluno, Vaga
+from .models import Aluno, Vaga, Comentario
 
 ## VagaService
 ##############
-
 class VagaService:
     def get_vaga(self, id_vaga):
         try:
@@ -12,8 +11,19 @@ class VagaService:
         except(Vaga.DoesNotExist):
             return None
 
+## ComentarioService
+####################
+class ComentarioService:
+    def comentar_vaga(self, usuario, id_vaga, texto):
+        srv = VagaService()
+        vaga = srv.get_vaga(id_vaga)
+        if vaga and usuario.is_authenticated and hasattr(usuario, 'aluno'):
+            coment = Comentario(texto=texto, aluno=usuario.aluno, vaga=vaga)
+            coment.save()
+            return {'sucesso': 'Comentário registrado com sucesso.'}
+        return {'erro': 'Identicação de vaga ou usuário inválidos!'}
 
-## UsuaruiService
+## UsuarioService
 #################
 class UsuarioService:
     def cadastrar_usuario(self, mapa):
