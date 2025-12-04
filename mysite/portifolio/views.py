@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views import View
+from django.contrib import messages
 from .services import UsuarioService, VagaService
 
 ## ComentarVagaView
@@ -11,7 +12,7 @@ class ComentarVagaView(View):
         vaga = srv.get_vaga(id_vaga)
         if vaga:
             return render(request, 'portifolio/form_comentario.html', {'vaga': vaga})
-        # definição da mensagem de retorno - middleware
+        messages.error(request, 'Vaga não encontrada.')
         return redirect('index')
         
 ## AdicaoUsuarioView
@@ -25,8 +26,10 @@ class AdicaoUsuarioView(View):
         srv = UsuarioService()
         retorno = srv.cadastrar_usuario(param)
         if 'erro' in retorno:
-            return render(request,'portifolio/form_usuario.html', retorno)
-        return render(request, 'portifolio/login.html', retorno)
+            messages.error(request, retorno['erro'])
+            return render(request,'portifolio/form_usuario.html')
+        messages.success(request, 'Usuário cadastrado com sucesso!')
+        return redirect('index')
     
     def extrai_parametros(self, request):
         login = request.POST.get('login', '')

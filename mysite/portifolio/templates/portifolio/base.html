@@ -21,6 +21,18 @@
             </ul>
         </nav>
     </header>
+    <!-- Container de Mensagens -->
+    <div class="messages-container">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}" role="alert">
+                    {{ message }}
+                    <button type="button" class="close-btn" onclick="this.parentElement.style.display='none';">&times;</button>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+
     {% block hero %}
     <section class="hero">
         <h1>Bem-vindo ao Portifólio IFRN</h1>
