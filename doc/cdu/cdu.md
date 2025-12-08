@@ -17,9 +17,9 @@
 1. [CDU-01 - Gerenciar portfólio](./cdu-01/detalhamento-01.md) :white_check_mark:
 1. [CDU-02 - Listar todas as vagas](./cdu-02/detalhamento-02.md)
 1. [CDU-03 - Sinalizar interesse em vaga](./cdu-03/detalhamento-03.md)
-1. [CDU-04 - Pesquisar por vagas específicas](./cdu-04/detalhamento-04.md) :white_check_mark:
+1. [CDU-04 - Pesquisar por vagas específicas](./cdu-04/detalhamento-04.md) :white_check_mark::white_check_mark:
 1. [CDU-05 - Criar aviso em caso de vaga específica](./cdu-05/detalhamento-05.md)
-1. [CDU-06 - Comentar em vaga ou portifólio](./cdu-06/detalhamento-06.md) :white_check_mark:
+1. [CDU-06 - Comentar em vaga ou portifólio](./cdu-06/detalhamento-06.md) :white_check_mark::white_check_mark:
 1. [CDU-07 - Seguir perfil de outro aluno](./cdu-07/detalhamento-07.md)
 1. [CDU-08 - Gerenciar publicação de vaga](./cdu-08/detalhamento-08.md)
 1. [CDU-09 - Listar interessados em vagas específicas](./cdu-09/detalhamento-09.md)

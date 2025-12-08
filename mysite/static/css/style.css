@@ -34,6 +34,44 @@ nav {
     padding: 0 2rem;
 }
 
+/* Search form in header */
+.search-form {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.search-input {
+    padding: 0.5rem 0.75rem;
+    border: 2px solid rgba(0,0,0,0.08);
+    border-radius: 20px;
+    width: 220px;
+    font-family: inherit;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #764ba2;
+    box-shadow: 0 0 0 3px rgba(118,75,162,0.08);
+}
+
+.search-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 0.5rem 0.8rem;
+    border-radius: 50%;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .search-input { width: 140px; }
+}
+
 .logo {
     font-size: 1.5rem;
     font-weight: bold;
@@ -124,6 +162,77 @@ nav {
     color: #667eea;
     margin-bottom: 1rem;
     font-size: 1.5rem;
+}
+
+/* Job listings */
+.job-listings {
+    max-width: 1100px;
+    margin: 2.5rem auto;
+    padding: 0 2rem;
+}
+
+.job-listings h2 {
+    color: #667eea;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.job-listings p {
+    margin-bottom: 1rem;
+    color: #444;
+}
+
+.job-listings ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+
+.job-card {
+    background: white;
+    padding: 1.25rem;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.job-card h3 {
+    margin: 0;
+    color: #333;
+    font-size: 1.25rem;
+}
+
+.job-card p {
+    margin: 0.25rem 0;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+.job-card a {
+    margin-top: auto;
+    display: inline-block;
+    padding: 0.6rem 1rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.job-card a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+@media (max-width: 768px) {
+    .job-listings { padding: 0 1rem; }
+    .job-listings ul { grid-template-columns: 1fr; }
 }
 
 /* Seção Sobre */

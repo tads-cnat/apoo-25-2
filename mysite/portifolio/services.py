@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from .models import Aluno, Vaga, Comentario
+from django.db.models import Q
 
 ## VagaService
 ##############
@@ -10,6 +11,9 @@ class VagaService:
             return obj
         except(Vaga.DoesNotExist):
             return None
+    def pesquisa_vaga(self, termo):
+        vagas = Vaga.objects.filter(Q(titulo__icontains=termo) | Q(descricao__icontains=termo))
+        return vagas
 
 ## ComentarioService
 ####################
