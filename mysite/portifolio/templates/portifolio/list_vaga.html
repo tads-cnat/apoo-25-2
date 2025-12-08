@@ -1,0 +1,24 @@
+{% extends 'portifolio/base.html' %}
+    {% block hero %}
+    {% endblock %}
+
+    {% block main %}
+    <section class="job-listings">
+        <h2>Lista de Vagas</h2>
+        {% if termo %}
+            <p>Resultados para: "<strong>{{ termo }}</strong>"</p>
+        {% endif %}
+        <ul>
+            {% for vaga in vagas %}
+            <li class="job-card">
+                <h3>{{ vaga.titulo }}</h3>
+                <p>{{ vaga.descricao }}</p>
+                <p><strong>Requisitos:</strong> {{ vaga.requisitos }}</p>
+                <p><strong>Remuneração:</strong> R$ {{ vaga.remuneracao }}</p>
+                <a href="#">Ver Detalhes</a>
+            </li>
+            {% empty %}
+            <li>Nenhuma vaga satisfaz os critérios informados.</li>
+            {% endfor %}
+        </ul>
+    {% endblock %}

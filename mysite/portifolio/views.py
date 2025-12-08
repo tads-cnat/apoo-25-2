@@ -3,6 +3,18 @@ from django.views import View
 from django.contrib import messages
 from .services import UsuarioService, VagaService, ComentarioService
 
+## PesquisaVagasView
+####################
+class PesquisaVagasView(View):
+    def post(self, request, *args, **kwargs):
+        termo = request.POST.get('texto', '')
+        if len(termo) < 3:
+            messages.error(request, 'O termo de pesquisa deve ter ao menos 3 caracteres.')
+            return redirect('index')
+        srv = VagaService()
+        vagas = srv.pesquisa_vaga(termo)
+        return render(request, 'portifolio/list_vaga.html', {'vagas': vagas, 'termo': termo})
+
 ## ComentarVagaView
 ###################
 class ComentarVagaView(View):

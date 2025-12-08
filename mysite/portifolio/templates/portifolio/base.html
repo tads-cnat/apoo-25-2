@@ -19,6 +19,12 @@
                 <li><a href="#">Contato</a></li>
                 <li><a href="{% url 'login' %}">Login</a></li>
             </ul>
+            <!-- Formulário de busca de vagas -->
+            <form method="post" action="{% url 'pesquisa_vaga' %}" class="search-form" role="search" aria-label="Buscar vagas">
+                {% csrf_token %}
+                <input type="search" name="texto" class="search-input" placeholder="Buscar vagas..." aria-label="Texto da busca" />
+                <button type="submit" class="search-btn" aria-label="Pesquisar">🔍</button>
+            </form>
         </nav>
     </header>
     <!-- Container de Mensagens -->
