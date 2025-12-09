@@ -27,7 +27,7 @@
 1. [CDU-11 - Realiza auto-cadastro](./cdu-11/detalhamento-11.md) :white_check_mark::white_check_mark:
 1. [CDU-12 - Login de usuário](./cdu-12/detalhamento-12.md)
 1. [CDU-13 - Visualizar chat específico](./cdu-13/detalhamento-13.md)
-1. [CDU-14 - Enviar mensagem em chat específico](./cdu-14/detalhamento-14.md) :white_check_mark:
+1. [CDU-14 - Enviar mensagem em chat específico](./cdu-14/detalhamento-14.md) :white_check_mark::white_check_mark:
 1. [CDU-15 - Habilitar usuário externo](./cdu-15/detalhamento-15.md)
 1. [CDU-16 - Moderar publicação de vaga](./cdu-16/detalhamento-16.md)
 1. [CDU-17 - Moderar publicação de portfólio](./cdu-17/detalhamento-17.md) :white_check_mark:
