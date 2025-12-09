@@ -24,7 +24,7 @@
 
 ## Diagrama de Interação (Sequência ou Comunicação)
 
-> Substituir pela imagem correspondente...
+![Diagrama de sequência](./imgs/cdu14_parte1.png)
 
 ## Diagrama de Classes de Projeto
 
