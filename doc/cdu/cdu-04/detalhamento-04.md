@@ -24,8 +24,8 @@
 
 ## Diagrama de Interação (Sequência ou Comunicação)
 
-![Diagrama de Sequência](./imgs/CDU04_sq1.png)
+![Diagrama de sequência](./imgs/CDU04_sq1.png)
 
 ## Diagrama de Classes de Projeto
 
-> Substituir pela imagem contendo as classes (modelo, visão e templates) que implementam o respectivo CDU...
+![Diagrama de classses de projeto](./imgs/projeto.png)
