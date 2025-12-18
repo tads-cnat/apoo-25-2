@@ -1,3 +1,4 @@
+from abc import ABC, abstractmethod
 from django.contrib.auth.models import User
 from .models import Aluno, Vaga, Comentario
 from django.db.models import Q
@@ -26,6 +27,27 @@ class ComentarioService:
             coment.save()
             return {'sucesso': 'Comentário registrado com sucesso.'}
         return {'erro': 'Identicação de vaga ou usuário inválidos!'}
+
+## ComentarVagaService
+######################
+class ComentarVagaService(ABC):
+    @staticmethod
+    def get_instancia():
+        return ComentarVagaImpl1()
+    @abstractmethod
+    def get_vaga(self, id_vaga):
+        pass
+
+## ComentarVagaImpl1
+####################
+class ComentarVagaImpl1(ComentarVagaService):
+    def get_vaga(self, id_vaga):
+        try:
+            obj = Vaga.objects.get(pk=id_vaga)
+            return obj
+        except(Vaga.DoesNotExist):
+            return None
+
 
 ## UsuarioService
 #################
