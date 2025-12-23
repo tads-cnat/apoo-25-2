@@ -36,10 +36,10 @@
 ## Diagrama de Interação (Sequência ou Comunicação)
 
 ### Parte 1 do Diagrama de Sequência
-![Parte 1 do Diagrama de Sequência](./imgs/CDU06_sq1.png)
+![Parte 1 do Diagrama de Sequência](./imgs/cdu06_parte1.png)
 
 ### Parte 2 do Diagrama de Sequência
-![Parte 2 do Diagrama de Sequência](./imgs/CDU06_sq2.png)
+![Parte 2 do Diagrama de Sequência](./imgs/cdu06_parte2.png)
 
 ## Diagrama de Classes de Projeto
 
