@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views import View
 from django.contrib import messages
-from .services import UsuarioService, VagaService, ComentarioService
+from .services import UsuarioService, VagaService, ComentarioService, ComentarVagaService
 
 ## PesquisaVagasView
 ####################
@@ -19,7 +19,7 @@ class PesquisaVagasView(View):
 ###################
 class ComentarVagaView(View):
     def get(self, request, *args, **kwargs):
-        srv = VagaService()
+        srv = ComentarVagaService.get_instancia()
         id_vaga = kwargs['id_vaga']
         vaga = srv.get_vaga(id_vaga)
         if vaga:
@@ -28,10 +28,10 @@ class ComentarVagaView(View):
         return redirect('index')
     
     def post(self, request, *args, **kwargs):
-        srv = ComentarioService()
+        srv = ComentarVagaService.get_instancia()
         id_vaga = kwargs['id_vaga']
         texto = request.POST['texto']
-        resultado = srv.comentar_vaga(request.user, id_vaga, texto)
+        resultado = srv.add_comentario(request.user, id_vaga, texto)
         if 'sucesso' in resultado:
             messages.success(request, resultado['sucesso'])
             # TODO: 'detalhes_vaga' ainda não está implementado
