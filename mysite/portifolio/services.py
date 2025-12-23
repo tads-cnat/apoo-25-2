@@ -28,27 +28,6 @@ class ComentarioService:
             return {'sucesso': 'Comentário registrado com sucesso.'}
         return {'erro': 'Identicação de vaga ou usuário inválidos!'}
 
-## ComentarVagaService
-######################
-class ComentarVagaService(ABC):
-    @staticmethod
-    def get_instancia():
-        return ComentarVagaImpl1()
-    @abstractmethod
-    def get_vaga(self, id_vaga):
-        pass
-
-## ComentarVagaImpl1
-####################
-class ComentarVagaImpl1(ComentarVagaService):
-    def get_vaga(self, id_vaga):
-        try:
-            obj = Vaga.objects.get(pk=id_vaga)
-            return obj
-        except(Vaga.DoesNotExist):
-            return None
-
-
 ## UsuarioService
 #################
 class UsuarioService:
@@ -76,3 +55,37 @@ class UsuarioService:
 
     def senhas_diferentes(self, mapa):
         return not mapa['senha1'] == mapa['senha2']
+
+##########################################################################
+###      NOVOS SERVIÇOS IMPLEMENTADOS COM PADRÃO DE PROJETO ABC.       ###
+##########################################################################
+
+## ComentarVagaService
+######################
+class ComentarVagaService(ABC):
+    @staticmethod
+    def get_instancia():
+        return ComentarVagaImpl1()
+    @abstractmethod
+    def get_vaga(self, id_vaga):
+        pass
+    @abstractmethod
+    def add_comentario(self, usuario, id_vaga, texto):
+        pass
+
+## ComentarVagaImpl1
+####################
+class ComentarVagaImpl1(ComentarVagaService):
+    def get_vaga(self, id_vaga):
+        try:
+            obj = Vaga.objects.get(pk=id_vaga)
+            return obj
+        except(Vaga.DoesNotExist):
+            return None
+    def add_comentario(self, usuario, id_vaga, texto):
+        vaga = self.get_vaga(id_vaga)
+        if vaga and usuario.is_authenticated and hasattr(usuario, 'aluno'):
+            coment = Comentario(texto=texto, aluno=usuario.aluno, vaga=vaga)
+            coment.save()
+            return {'sucesso': 'Comentário registrado com sucesso.'}
+        return {'erro': 'Identicação de vaga ou usuário inválidos!'}
