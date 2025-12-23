@@ -1,0 +1,71 @@
+{% extends "portifolio/base.html" %}
+{% load static %}
+
+{% block title %}{{ vaga.titulo }} - Detalhes da Vaga{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8">
+            <h1>{{ vaga.titulo }}</h1>
+            
+            <div class="card mt-4">
+                <div class="card-body">
+                    <h5 class="card-title">Informações da Vaga</h5>
+                    
+                    <p><strong>Empresa:</strong> {{ vaga.empresa }}</p>
+                    <p><strong>Localização:</strong> {{ vaga.localizacao }}</p>
+                    <p><strong>Tipo:</strong> {{ vaga.get_tipo_display }}</p>
+                    
+                    {% if vaga.salario %}
+                    <p><strong>Salário:</strong> R$ {{ vaga.salario }}</p>
+                    {% endif %}
+                    
+                    <p><strong>Data de Publicação:</strong> {{ vaga.data_publicacao|date:"d/m/Y" }}</p>
+                    
+                    {% if vaga.data_expiracao %}
+                    <p><strong>Data de Expiração:</strong> {{ vaga.data_expiracao|date:"d/m/Y" }}</p>
+                    {% endif %}
+                </div>
+            </div>
+            
+            <div class="card mt-4">
+                <div class="card-body">
+                    <h5 class="card-title">Descrição</h5>
+                    <p>{{ vaga.descricao }}</p>
+                </div>
+            </div>
+            
+            <div class="card mt-4">
+                <div class="card-body">
+                    <h5 class="card-title">Requisitos</h5>
+                    <p>{{ vaga.requisitos }}</p>
+                </div>
+            </div>
+            <div class="card mt-4">
+                <div class="card-body">
+                    <h5 class="card-title">Comentários</h5>
+                    
+                    {% if vaga.comentario_set.all %}
+                        {% for comentario in vaga.comentario_set.all %}
+                        <div class="border-bottom pb-3 mb-3">
+                            <p class="mb-1"><strong>
+                                {{ comentario.aluno.user.username }}
+                                ({{ comentario.aluno.matricula }})
+                            </strong></p>
+                            <!--
+                            <small class="text-muted">{{ comentario.data|date:"d/m/Y H:i" }}</small>
+                            -->
+                            <p class="mt-2">{{ comentario.texto }}</p>
+                        </div>
+                        {% endfor %}
+                    {% else %}
+                        <p class="text-muted">Nenhum comentário ainda.</p>
+                    {% endif %}
+                </div>
+            </div>
+            <a href="{% url 'portifolio:vaga_list' %}" class="btn btn-secondary mt-4">Voltar</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
