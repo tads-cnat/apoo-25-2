@@ -47,9 +47,7 @@ class ComentarVagaView(View):
         resultado = srv.add_comentario(request.user, id_vaga, texto)
         if 'sucesso' in resultado:
             messages.success(request, resultado['sucesso'])
-            # TODO: 'detalhes_vaga' ainda não está implementado
-            # por enquanto o resultado será redirecionado para a 'index'
-            return redirect('index')
+            return redirect('detalha_vaga', id_vaga=id_vaga)
         messages.error(request, resultado['erro'])
         return redirect('index')
 

@@ -15,7 +15,7 @@
                 <p>{{ vaga.descricao }}</p>
                 <p><strong>Requisitos:</strong> {{ vaga.requisitos }}</p>
                 <p><strong>Remuneração:</strong> R$ {{ vaga.remuneracao }}</p>
-                <a href="#">Ver Detalhes</a>
+                <a href="{% url 'detalha_vaga' vaga.id %}">Ver Detalhes</a>
             </li>
             {% empty %}
             <li>Nenhuma vaga satisfaz os critérios informados.</li>
