@@ -3,6 +3,19 @@ from django.views import View
 from django.contrib import messages
 from .services import UsuarioService, VagaService, ComentarioService, ComentarVagaService
 
+## DetalhaVagaView
+##################
+class DetalhaVagaView(View):
+    def get(self, request, *args, **kwargs):
+        id_vaga = kwargs['id_vaga']
+        srv = VagaService()
+        vaga = srv.get_vaga(id_vaga)
+        if vaga:
+            return render(request, 'portifolio/vaga_detalhes.html', {'vaga': vaga})
+        messages.error(request, 'Identificador de Vaga inválido.')
+        return redirect('index')
+
+
 ## PesquisaVagasView
 ####################
 class PesquisaVagasView(View):
@@ -34,9 +47,7 @@ class ComentarVagaView(View):
         resultado = srv.add_comentario(request.user, id_vaga, texto)
         if 'sucesso' in resultado:
             messages.success(request, resultado['sucesso'])
-            # TODO: 'detalhes_vaga' ainda não está implementado
-            # por enquanto o resultado será redirecionado para a 'index'
-            return redirect('index')
+            return redirect('detalha_vaga', id_vaga=id_vaga)
         messages.error(request, resultado['erro'])
         return redirect('index')
 

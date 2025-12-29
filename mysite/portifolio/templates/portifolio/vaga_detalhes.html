@@ -1,0 +1,38 @@
+{% extends "portifolio/base.html" %}
+{% load static %}
+
+{% block hero %}{% endblock %}
+
+{% block main %}
+<section class="job-listings">
+    <div class="job-card" style="max-width:900px; margin:2.5rem auto; padding:1.75rem;">
+        <h2>{{ vaga.titulo }}</h2>
+
+        <p style="margin-top:0.5rem;"><strong>Remuneração:</strong> R$ {{ vaga.remuneracao }}</p>
+        <p><strong>Data de Postagem:</strong> {{ vaga.data_postagem|date:"d/m/Y" }}</p>
+        <p><strong>Data Final:</strong> {{ vaga.data_final|date:"d/m/Y" }}</p>
+
+        <hr style="margin:1rem 0;">
+
+        <h3>Descrição</h3>
+        <p>{{ vaga.descricao|linebreaks }}</p>
+
+        <h3>Requisitos</h3>
+        <p>{{ vaga.requisitos|linebreaks }}</p>
+
+        <h3>Comentários</h3>
+        {% if vaga.comentario_set.all %}
+            {% for comentario in vaga.comentario_set.all %}
+            <div class="feature-card" style="padding:1rem; margin-bottom:1rem;">
+                <p class="mb-1"><strong>{{ comentario.aluno.user.username }} ({{ comentario.aluno.matricula }})</strong></p>
+                <p class="mt-2">{{ comentario.texto }}</p>
+            </div>
+            {% endfor %}
+        {% else %}
+            <p class="text-muted">Nenhum comentário ainda.</p>
+        {% endif %}
+
+        <a href="{% url 'index' %}" class="btn" style="margin-top:1rem;">Voltar</a>
+    </div>
+</section>
+{% endblock %}
